@@ -20,6 +20,7 @@ from scipy.spatial.transform import Rotation
 from std_msgs.msg import Bool, Float32
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import JointState
+from pathlib import Path
 
 class GMPC_ackermann_node(Node):
 
@@ -62,6 +63,7 @@ class GMPC_ackermann_node(Node):
         # Controller initialization
         # =========================================================
         self.controller = gmpc_ackermann()
+        self.config_dir = Path(self.config_dir)
 
         gmpc_ackermann_config_path = self.config_dir / "gmpc_ackermann_tuning.yaml"
         with open(gmpc_ackermann_config_path, "r") as f:

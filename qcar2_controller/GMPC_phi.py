@@ -20,6 +20,7 @@ from scipy.spatial.transform import Rotation
 from std_msgs.msg import Bool, Float32
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import JointState
+from pathlib import Path
 
 class GMPC_phi_node(Node):
 
@@ -62,6 +63,7 @@ class GMPC_phi_node(Node):
         # =========================================================
       
         self.controller = gmpc_phi()
+        self.config_dir = Path(self.config_dir)
 
         gmpc_phi_config_path = self.config_dir / "gmpc_phi_tuning.yaml"
         with open(gmpc_phi_config_path, "r") as f:

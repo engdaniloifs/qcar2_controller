@@ -61,7 +61,9 @@ class FBLinear_node(Node):
       self.flag_info = False
       # initialize GMPC parameters
 
-      
+      self.config_dir = Path(self.config_dir)
+
+  
       
       fblinearization_config_path = self.config_dir / "fblinearization_tuning.yaml"
 

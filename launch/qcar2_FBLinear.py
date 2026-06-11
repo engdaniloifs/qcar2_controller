@@ -25,8 +25,8 @@ def generate_launch_description():
 
     FBLinear = Node(
         package='qcar2_controller',
-        executable='FBLinear',
-        name='FBLinear',
+        executable='FBlinear',
+        name='FBlinear',
         parameters=[
         {
             'qcarnumber': qcarnumber,

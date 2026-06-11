@@ -18,6 +18,7 @@ from rclpy.qos import QoSProfile, ReliabilityPolicy
 from scipy.spatial.transform import Rotation as Rotation_test
 from actions_demo_interfaces.msg import FlagsRobotsArray
 from std_msgs.msg import Bool, Float32
+from pathlib import Path
 
 class pure_pursuit(Node):
 
@@ -73,6 +74,7 @@ class pure_pursuit(Node):
       self.mode = 0 # task mode received from FlagsRobotsArray
       self.status = f'done {self.mode}'
 
+      self.config_dir = Path(self.config_dir)
       csv_path = self.config_dir / "path.csv"
 
         # Read waypoints immediately at node startup

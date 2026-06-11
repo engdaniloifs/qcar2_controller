@@ -21,6 +21,7 @@ from scipy.spatial.transform import Rotation
 from std_msgs.msg import Bool, Float32
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import JointState
+from pathlib import Path
 
 class NMPC_node(Node):
 
@@ -66,6 +67,7 @@ class NMPC_node(Node):
       # Controller initialization
       # =========================================================
       self.controller = nmpc(model_config={}, dt=self.dt)
+      self.config_dir = Path(self.config_dir)
 
       nmpc_config_path = self.config_dir / "nmpc_tuning.yaml"
       with open(nmpc_config_path, "r") as f:
